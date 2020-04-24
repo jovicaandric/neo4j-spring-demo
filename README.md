@@ -1,14 +1,14 @@
-#Neo4J Spring Demo App
+# Neo4J Spring Demo App
 
 This is a simple spring demo application that connects to Neo4J graph database and executes some basic queries over initial demo dataset. 
 
-##Run Application
+## Run Application
 
 ```bash
 docker-compose up -d 
 ```
 
-##Load Initial Data
+## Load Initial Data
 
 1. Open neo4j dashboard in browser `http://localhost:7474`
 
@@ -16,12 +16,12 @@ docker-compose up -d
 
 This will create the movie graph!
 
-##Data model
+## Data model
 ![movies model](doc/movies-model.png)
-####Nodes
+#### Nodes
 * `Movie`
 * `Person`
-####Relationships
+#### Relationships
 * `(:Person)-[:ACTED_IN]->(:Movie)`
 * `(:Person)-[:DIRECTED]->(:Movie)`
 * `(:Person)-[:FOLLOWS]->(:Movie)`
@@ -29,7 +29,7 @@ This will create the movie graph!
 * `(:Person)-[:REVIEWED]->(:Movie)`
 * `(:Person)-[:WROTE]->(:Movie)`
 
-##API
+## API
 Purpose of this api is to test Neo4J and its features so only basic operations are implemented.
 
 Open swagger in browser `http://localhost:8080/swagger/swagger-ui.html`
@@ -42,11 +42,11 @@ Api provides you following functionalities:
 * Find all directors in database
 * Find all review for a movie
 
-##Examples
+## Examples
 
 Some of example queries to try on this dataset:
 
-###Find actor named Tom Hanks
+### Find actor named Tom Hanks
 
 ```
 MATCH (tom {name: "Tom Hanks"}) 
@@ -110,7 +110,7 @@ RETURN tom, m, coActors, m2, cruise
 MATCH (n) DETACH DELETE n
 ```
 
-##Resources
+## Resources
 
 [Check Official Neo4J Documentation](https://neo4j.com/docs/)
 
