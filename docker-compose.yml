@@ -4,6 +4,9 @@ services:
     image: neo4j
     environment:
       NEO4J_AUTH: neo4j/neo-spring-demo
+    ports:
+    - "7474:7474"
+    - "7687:7687"
   api:
     build:
       context: .

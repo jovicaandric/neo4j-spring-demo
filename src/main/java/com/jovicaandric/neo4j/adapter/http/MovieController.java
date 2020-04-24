@@ -2,6 +2,7 @@ package com.jovicaandric.neo4j.adapter.http;
 
 import java.util.List;
 import com.jovicaandric.neo4j.domain.model.Movie;
+import com.jovicaandric.neo4j.domain.model.Review;
 import com.jovicaandric.neo4j.domain.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -34,5 +35,10 @@ public class MovieController {
         return service.getMovieByTitle(title)
             .map(ResponseEntity::ok)
             .orElse(ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/movies/{title}/reviews")
+    public List<Review> listAllMovieReviews(@PathVariable final String title) {
+        return service.getMovieReviews(title);
     }
 }
